@@ -21,5 +21,5 @@ void main() {
     gl_Position = projectedPosition;
 
     // Varyings
-    vElevation = elevation
+    vElevation = elevation;
 }
