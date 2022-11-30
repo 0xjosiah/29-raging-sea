@@ -31,6 +31,9 @@ const waterMaterial = new THREE.ShaderMaterial({
         uBigWavesElevation: { value: 0.2 },
     }
 })
+const waveParamsFolder = gui.addFolder('Wave Params')
+waveParamsFolder.add(waterMaterial.uniforms.uBigWavesElevation, 'value', 0, 1, .001).name('elevation')
+
 
 
 // Mesh
