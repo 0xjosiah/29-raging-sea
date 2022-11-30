@@ -1,11 +1,13 @@
 uniform float uBigWavesElevation;
-uniform float uBigWavesFrequency;
+uniform vec2 uBigWavesFrequency;
 
 void main() {
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
 
     // Elevation
-    float elevation = sin(modelPosition.x * uBigWavesFrequency) * uBigWavesElevation;
+    float waveFreqX = sin(modelPosition.x * uBigWavesFrequency.x);
+    float waveFreqZ = sin(modelPosition.z * uBigWavesFrequency.y);
+    float elevation = waveFreqX * waveFreqZ * uBigWavesElevation;
 
     modelPosition.y += elevation;
 
