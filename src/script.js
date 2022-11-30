@@ -10,6 +10,7 @@ import waterVertexShader from './shaders/water/vertex.glsl'
  */
 // Debug
 const gui = new dat.GUI({ width: 340 })
+const debugObject = {}
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -22,6 +23,10 @@ const scene = new THREE.Scene()
  */
 // Geometry
 const waterGeometry = new THREE.PlaneGeometry(2, 2, 128, 128)
+
+// Color
+debugObject.depthColor = 0x0000ff
+debugObject.surfaceColor = 0x8888ff
 
 // Material
 const waterMaterial = new THREE.ShaderMaterial({
