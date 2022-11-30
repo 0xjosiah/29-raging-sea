@@ -34,9 +34,13 @@ const waterMaterial = new THREE.ShaderMaterial({
     fragmentShader: waterFragShader,
     uniforms: {
         uTime: { value: 0 },
+
         uBigWavesElevation: { value: 0.2 },
         uBigWavesFrequency: { value: new THREE.Vector2(4, 1.5) },
         uBigWavesSpeed: { value: .75 },
+
+        uDepthColor: { value: new THREE.Color(debugObject.depthColor) },
+        uSurfaceColor: { value: new THREE.Color(debugObject.surfaceColor) },
     }
 })
 const waveParamsFolder = gui.addFolder('Wave Params')
@@ -44,6 +48,8 @@ waveParamsFolder.add(waterMaterial.uniforms.uBigWavesElevation, 'value', 0, 1, .
 waveParamsFolder.add(waterMaterial.uniforms.uBigWavesFrequency.value, 'x', 0, 20, .1).name('x frequency')
 waveParamsFolder.add(waterMaterial.uniforms.uBigWavesFrequency.value, 'y', 0, 20, .1).name('z frequency')
 waveParamsFolder.add(waterMaterial.uniforms.uBigWavesSpeed, 'value', 0, 5, .01).name('speed')
+waveParamsFolder.addColor(debugObject, 'depthColor').onChange(() => waterMaterial.needsUpdate = true)
+waveParamsFolder.addColor(debugObject, 'surfaceColor').onChange(() => waterMaterial.uniforms.uSurfaceColor.value.set(debugObject.surfaceColor))
 
 
 
