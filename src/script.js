@@ -29,10 +29,12 @@ const waterMaterial = new THREE.ShaderMaterial({
     fragmentShader: waterFragShader,
     uniforms: {
         uBigWavesElevation: { value: 0.2 },
+        uBigWavesFrequency: { value: 10.0 }
     }
 })
 const waveParamsFolder = gui.addFolder('Wave Params')
 waveParamsFolder.add(waterMaterial.uniforms.uBigWavesElevation, 'value', 0, 1, .001).name('elevation')
+waveParamsFolder.add(waterMaterial.uniforms.uBigWavesFrequency, 'value', 0, 20, .1).name('frequency')
 
 
 
