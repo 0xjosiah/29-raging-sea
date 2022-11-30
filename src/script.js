@@ -25,8 +25,8 @@ const scene = new THREE.Scene()
 const waterGeometry = new THREE.PlaneGeometry(2, 2, 128, 128)
 
 // Color
-debugObject.depthColor = 0x0000ff
-debugObject.surfaceColor = 0x8888ff
+debugObject.depthColor = 0x186691
+debugObject.surfaceColor = 0x9bd8ff
 
 // Material
 const waterMaterial = new THREE.ShaderMaterial({
@@ -41,8 +41,8 @@ const waterMaterial = new THREE.ShaderMaterial({
 
         uDepthColor: { value: new THREE.Color(debugObject.depthColor) },
         uSurfaceColor: { value: new THREE.Color(debugObject.surfaceColor) },
-        uColorOffset: { value: .25 },
-        uColorMultiplier: { value: 2 },
+        uColorOffset: { value: .08 },
+        uColorMultiplier: { value: 5 },
     }
 })
 const waveParamsFolder = gui.addFolder('Wave Params')
