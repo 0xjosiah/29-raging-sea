@@ -6,7 +6,7 @@ uniform float uColorMultiplier;
 varying float vElevation;
 
 void main() {
-    float elevationMultiplier = (vElevation * uColorMultiplier) + uColorOffset;
+    float elevationMultiplier = (vElevation + uColorOffset) * uColorMultiplier;
     vec3 color = mix(uDepthColor, uSurfaceColor, elevationMultiplier);
     
     gl_FragColor = vec4(color, 1.0);

@@ -52,8 +52,8 @@ waveParamsFolder.add(waterMaterial.uniforms.uBigWavesFrequency.value, 'y', 0, 20
 waveParamsFolder.add(waterMaterial.uniforms.uBigWavesSpeed, 'value', 0, 5, .01).name('speed')
 waveParamsFolder.addColor(debugObject, 'depthColor').onChange(() => waterMaterial.uniforms.uDepthColor.value.set(debugObject.depthColor))
 waveParamsFolder.addColor(debugObject, 'surfaceColor').onChange(() => waterMaterial.uniforms.uSurfaceColor.value.set(debugObject.surfaceColor))
-waveParamsFolder.add(waterMaterial.uniforms.uColorOffset, 'value', 0, 3, .01).name('color offset')
-waveParamsFolder.add(waterMaterial.uniforms.uColorMultiplier, 'value', 0, 3, .01).name('color multiplier')
+waveParamsFolder.add(waterMaterial.uniforms.uColorOffset, 'value', 0, 1, .001).name('color offset')
+waveParamsFolder.add(waterMaterial.uniforms.uColorMultiplier, 'value', 0, 10, .01).name('color multiplier')
 
 
 
