@@ -26,7 +26,10 @@ const waterGeometry = new THREE.PlaneGeometry(2, 2, 128, 128)
 // Material
 const waterMaterial = new THREE.ShaderMaterial({
     vertexShader: waterVertexShader,
-    fragmentShader: waterFragShader
+    fragmentShader: waterFragShader,
+    uniforms: {
+        uBigWavesElevation: { value: 0.2 },
+    }
 })
 
 
