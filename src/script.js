@@ -48,7 +48,7 @@ waveParamsFolder.add(waterMaterial.uniforms.uBigWavesElevation, 'value', 0, 1, .
 waveParamsFolder.add(waterMaterial.uniforms.uBigWavesFrequency.value, 'x', 0, 20, .1).name('x frequency')
 waveParamsFolder.add(waterMaterial.uniforms.uBigWavesFrequency.value, 'y', 0, 20, .1).name('z frequency')
 waveParamsFolder.add(waterMaterial.uniforms.uBigWavesSpeed, 'value', 0, 5, .01).name('speed')
-waveParamsFolder.addColor(debugObject, 'depthColor').onChange(() => waterMaterial.needsUpdate = true)
+waveParamsFolder.addColor(debugObject, 'depthColor').onChange(() => waterMaterial.uniforms.uDepthColor.value.set(debugObject.depthColor))
 waveParamsFolder.addColor(debugObject, 'surfaceColor').onChange(() => waterMaterial.uniforms.uSurfaceColor.value.set(debugObject.surfaceColor))
 
 

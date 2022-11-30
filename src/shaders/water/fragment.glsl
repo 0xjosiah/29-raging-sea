@@ -1,3 +1,7 @@
+uniform vec3 uDepthColor;
+uniform vec3 uSurfaceColor;
+
 void main() {
-    gl_FragColor = vec4(.5, .8, 1.0, 1.0);
+    vec3 depth = uDepthColor;
+    gl_FragColor = vec4(depth, 1.0);
 }
