@@ -39,6 +39,11 @@ const waterMaterial = new THREE.ShaderMaterial({
         uBigWavesFrequency: { value: new THREE.Vector2(4, 1.5) },
         uBigWavesSpeed: { value: .75 },
 
+        uSmallWavesElevation: { value: 0.15 },
+        uSmallWavesFrequency: { value: 3.0 },
+        uSmallWavesSpeed: { value: 0.2 },
+        uSmallWavesIterations: { value: 4.0 },
+
         uDepthColor: { value: new THREE.Color(debugObject.depthColor) },
         uSurfaceColor: { value: new THREE.Color(debugObject.surfaceColor) },
         uColorOffset: { value: .08 },
@@ -50,11 +55,17 @@ waveParamsFolder.add(waterMaterial.uniforms.uBigWavesElevation, 'value', 0, 1, .
 waveParamsFolder.add(waterMaterial.uniforms.uBigWavesFrequency.value, 'x', 0, 20, .1).name('x frequency')
 waveParamsFolder.add(waterMaterial.uniforms.uBigWavesFrequency.value, 'y', 0, 20, .1).name('z frequency')
 waveParamsFolder.add(waterMaterial.uniforms.uBigWavesSpeed, 'value', 0, 5, .01).name('speed')
+
 waveParamsFolder.addColor(debugObject, 'depthColor').onChange(() => waterMaterial.uniforms.uDepthColor.value.set(debugObject.depthColor))
 waveParamsFolder.addColor(debugObject, 'surfaceColor').onChange(() => waterMaterial.uniforms.uSurfaceColor.value.set(debugObject.surfaceColor))
+
 waveParamsFolder.add(waterMaterial.uniforms.uColorOffset, 'value', 0, 1, .001).name('color offset')
 waveParamsFolder.add(waterMaterial.uniforms.uColorMultiplier, 'value', 0, 10, .01).name('color multiplier')
 
+waveParamsFolder.add(waterMaterial.uniforms.uSmallWavesElevation, 'value', 0, 5, .001).name('small elevation')
+waveParamsFolder.add(waterMaterial.uniforms.uSmallWavesFrequency, 'value', 0, 10, .001).name('small frequency')
+waveParamsFolder.add(waterMaterial.uniforms.uSmallWavesSpeed, 'value', 0, 5, .001).name('small speed')
+waveParamsFolder.add(waterMaterial.uniforms.uSmallWavesIterations, 'value', 0, 15, 1).name('small iterations')
 
 
 // Mesh
