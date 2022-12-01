@@ -62,8 +62,8 @@ waveParamsFolder.addColor(debugObject, 'surfaceColor').onChange(() => waterMater
 waveParamsFolder.add(waterMaterial.uniforms.uColorOffset, 'value', 0, 1, .001).name('color offset')
 waveParamsFolder.add(waterMaterial.uniforms.uColorMultiplier, 'value', 0, 10, .01).name('color multiplier')
 
-waveParamsFolder.add(waterMaterial.uniforms.uSmallWavesElevation, 'value', 0, 5, .001).name('small elevation')
-waveParamsFolder.add(waterMaterial.uniforms.uSmallWavesFrequency, 'value', 0, 10, .001).name('small frequency')
+waveParamsFolder.add(waterMaterial.uniforms.uSmallWavesElevation, 'value', 0, 1, .001).name('small elevation')
+waveParamsFolder.add(waterMaterial.uniforms.uSmallWavesFrequency, 'value', 0, 30, .001).name('small frequency')
 waveParamsFolder.add(waterMaterial.uniforms.uSmallWavesSpeed, 'value', 0, 5, .001).name('small speed')
 waveParamsFolder.add(waterMaterial.uniforms.uSmallWavesIterations, 'value', 0, 15, 1).name('small iterations')
 
