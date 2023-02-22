@@ -26,14 +26,14 @@ scene.background = backgroundColor
  * Water
  */
 // Geometry
-const waterGeometry = new THREE.PlaneGeometry(2, 2, 512, 512)
+const waterGeometry = new THREE.PlaneGeometry(20, 20, 512, 512)
 // const waterGeometry = new THREE.SphereGeometry(2, 512, 512)
 // const waterGeometry = new THREE.BoxGeometry(10, 10, .1, 512, 512)
 // const waterGeometry = new THREE.CylinderGeometry(5, .1, 15, 512, 512)
 
 // Color
-debugObject.depthColor = 0x186691
-debugObject.surfaceColor = 0x9bd8ff
+debugObject.depthColor = 0x365187
+debugObject.surfaceColor = 0xf291a0
 
 // Material
 const waterMaterial = new THREE.ShaderMaterial({
@@ -44,19 +44,19 @@ const waterMaterial = new THREE.ShaderMaterial({
     uniforms: {
         uTime: { value: 0 },
 
-        uBigWavesElevation: { value: 0.2 },
-        uBigWavesFrequency: { value: new THREE.Vector2(4, 1.5) },
-        uBigWavesSpeed: { value: .75 },
+        uBigWavesElevation: { value: 0.283 },
+        uBigWavesFrequency: { value: new THREE.Vector2( 0.72, 0.369 ) },
+        uBigWavesSpeed: { value: 0.33 },
 
-        uSmallWavesElevation: { value: 0.15 },
-        uSmallWavesFrequency: { value: 3.0 },
-        uSmallWavesSpeed: { value: 0.2 },
-        uSmallWavesIterations: { value: 4.0 },
+        uSmallWavesElevation: { value: 0.167 },
+        uSmallWavesFrequency: { value: 1.765 },
+        uSmallWavesSpeed: { value: 0.178 },
+        uSmallWavesIterations: { value: 2.0 },
 
         uDepthColor: { value: new THREE.Color(debugObject.depthColor) },
         uSurfaceColor: { value: new THREE.Color(debugObject.surfaceColor) },
-        uColorOffset: { value: .08 },
-        uColorMultiplier: { value: 5 },
+        uColorOffset: { value: 0.051 },
+        uColorMultiplier: { value: 3.76 },
     }
 })
 const waveParamsFolder = gui.addFolder('Wave Params')
