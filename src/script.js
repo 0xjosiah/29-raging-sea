@@ -18,6 +18,10 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
+// backdrop
+const backgroundColor = new THREE.Color(0xf5d5d5)
+scene.background = backgroundColor
+
 /**
  * Water
  */
@@ -36,6 +40,7 @@ const waterMaterial = new THREE.ShaderMaterial({
     vertexShader: waterVertexShader,
     fragmentShader: waterFragShader,
     side: THREE.DoubleSide,
+    // wireframe: true,
     uniforms: {
         uTime: { value: 0 },
 
@@ -76,6 +81,30 @@ waveParamsFolder.add(waterMaterial.uniforms.uSmallWavesIterations, 'value', 0, 1
 const water = new THREE.Mesh(waterGeometry, waterMaterial)
 water.rotation.x = - Math.PI * 0.5
 scene.add(water)
+// console.log(water.geometry.attributes.position.array)
+
+/**
+ * Boats
+ */
+const testBoat = new THREE.Mesh(
+    new THREE.SphereGeometry(.1),
+    new THREE.MeshBasicMaterial()
+)
+// scene.add(testBoat)
+// console.log(testBoat)
+
+// const waterPos = water.geometry.attributes.position.array
+// const boatPos = testBoat.geometry.attributes.position.array
+// console.log(boatPos);
+// for (let i = 0; i < waterPos.length; i+=3) {
+//     let x = waterPos[i]
+//     let y = waterPos[i + 1]
+//     let z = waterPos[i + 2]
+//     let boatX = testBoat.position.x//boatPos[i]
+//     let boatY = testBoat.position.y//boatPos[i + 1]
+//     let boatZ = testBoat.position.z//boatPos[i + 2]
+//     if(x == boatX && y == boatY) console.log(x, y)
+// }
 
 /**
  * Sizes
@@ -132,6 +161,27 @@ const tick = () =>
 
     // Update uniforms in water shaders
     waterMaterial.uniforms.uTime.value = elapsedTime
+
+    // Update boat
+    // const waterPos = water.geometry.attributes.position.array
+    // // const boatPos = testBoat.geometry.attributes.position.array
+    // for (let i = 0; i < waterPos.length; i+=3) {
+    //     let x = waterPos[i]
+    //     let y = waterPos[i + 1]
+    //     let z = waterPos[i + 2]
+    //     let boatX = testBoat.position.x//boatPos[i]
+    //     let boatY = testBoat.position.y//boatPos[i + 1]
+    //     // let boatZ = testBoat.position.z//boatPos[i + 2]
+    //     if(x == boatX && y == boatY) {
+    //         testBoat.position.set(x,y,z)
+    //         console.log(x,y,z);
+    //     }
+    // }
+    const {uBigWavesElevation, uBigWavesFrequency, uBigWavesSpeed} = waterMaterial.uniforms
+    const waveFreqX = Math.sin(testBoat.position.x * uBigWavesFrequency.x + elapsedTime * uBigWavesSpeed);
+    const waveFreqZ = Math.sin(testBoat.position.z * uBigWavesFrequency.y + elapsedTime * uBigWavesSpeed);
+    const elevation = waveFreqX * waveFreqZ * uBigWavesElevation;
+    testBoat.position.y = Math.sin(elapsedTime * uBigWavesSpeed.value) * uBigWavesElevation.value
 
     // Update controls
     controls.update()
