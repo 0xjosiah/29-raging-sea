@@ -134,7 +134,7 @@ window.addEventListener('resize', () =>
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.set(1, 1, 1)
+camera.position.set( 1.1469, 0.4058, 1.2328 )
 scene.add(camera)
 
 // Controls
@@ -188,6 +188,10 @@ const tick = () =>
 
     // Render
     renderer.render(scene, camera)
+
+    // camera caller
+    // console.log('cam pos', camera.position)
+    // console.log('cam rotation', camera.rotation)
 
     // Call tick again on the next frame
     window.requestAnimationFrame(tick)
