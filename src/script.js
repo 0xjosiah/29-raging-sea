@@ -26,7 +26,7 @@ scene.background = backgroundColor
  * Water
  */
 // Geometry
-const waterGeometry = new THREE.PlaneGeometry(20, 20, 512, 512)
+const waterGeometry = new THREE.PlaneGeometry(15, 15, 512, 512)
 // const waterGeometry = new THREE.SphereGeometry(2, 512, 512)
 // const waterGeometry = new THREE.BoxGeometry(10, 10, .1, 512, 512)
 // const waterGeometry = new THREE.CylinderGeometry(5, .1, 15, 512, 512)
